@@ -23,7 +23,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.x < leftBound && gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void spawnObstacles()
@@ -32,8 +35,6 @@ public class SpawnManager : MonoBehaviour
             Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
         }
 
-        if (transform.position.x < leftBound && gameObject.CompareTag("Wall")) {
-            Destroy(gameObject);
-        }
+        
     }
 }
